@@ -1,0 +1,131 @@
+﻿@{ViewData["Title"] = "Tasks";
+}
+@model List<TaskResponse>
+
+
+<div class="flex-container" style="display: flex; flex-wrap: wrap; min-height: 100vh;">
+    <div class="flex-item" style="background-color: tomato; min-width: 50%; min-height: 50%;">
+        <h3 style="text-align: center; color: white;">Quadrant 1 (Urgent/Important)</h3>
+        <table class="table table-bordered table-striped table-sm" style="color: white;">
+            <thead class="table-dark">
+                <tr>
+                    <td>Task</td>
+                    <td>Due Date</td>
+                    <td>Category</td>
+                    <td>Complete?</td>
+                    <td>Edit</td>
+                    <td>Delete</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var task in Model)
+                {
+                    @if (task.Quadrant == 1)
+                    {
+                <tr>
+                    <td style="max-width: 200px;">@task.Task</td>
+                    <td style="max-width: 90px;">@task.DueDate</td>
+                    <td>@task.Category.CategoryName</td>
+                    <td style="text-align: center"><a asp-controller="Home" asp-action="Completed" asp-route-taskid="@task.TaskId">☐</a></td>
+                    <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@task.TaskId">Edit</a></td>
+                    <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@task.TaskId">Delete</a></td>
+                </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="flex-item" style="background-color: powderblue; min-width: 50%; min-height: 50%;">
+        <h3 style="text-align: center; color: white;">Quadrant 2 (Not Urgent/Important)</h3>
+        <table class="table table-bordered table-striped table-sm" style="color: white;">
+            <thead class="table-dark">
+                <tr>
+                    <td>Task</td>
+                    <td>Due Date</td>
+                    <td>Category</td>
+                    <td>Complete?</td>
+                    <td>Edit</td>
+                    <td>Delete</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var task in Model)
+                {
+                    @if (task.Quadrant == 2)
+                    {
+                <tr>
+                    <td style="max-width: 200px;">@task.Task</td>
+                    <td style="max-width: 90px;">@task.DueDate</td>
+                    <td>@task.Category.CategoryName</td>
+                    <td style="text-align: center"><a asp-controller="Home" asp-action="Completed" asp-route-taskid="@task.TaskId">☐</a></td>
+                    <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@task.TaskId">Edit</a></td>
+                    <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@task.TaskId">Delete</a></td>
+                </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="flex-item" style="background-color: palegoldenrod; min-width: 50%; min-height: 50%;">
+        <h3 style="text-align: center; color: white;">Quadrant 3 (Urgent/Not Important)</h3>
+        <table class="table table-bordered table-striped table-sm" style="color: white;">
+            <thead class="table-dark">
+                <tr>
+                    <td>Task</td>
+                    <td>Due Date</td>
+                    <td>Category</td>
+                    <td>Complete?</td>
+                    <td>Edit</td>
+                    <td>Delete</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var task in Model)
+                {
+                    @if (task.Quadrant == 3)
+                    {
+                <tr>
+                    <td style="max-width: 200px;">@task.Task</td>
+                    <td style="max-width: 90px;">@task.DueDate</td>
+                    <td>@task.Category.CategoryName</td>
+                    <td style="text-align: center"><a asp-controller="Home" asp-action="Completed" asp-route-taskid="@task.TaskId">☐</a></td>
+                    <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@task.TaskId">Edit</a></td>
+                    <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@task.TaskId">Delete</a></td>
+                </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="flex-item" style="background-color: palegreen; min-width: 50%; min-height: 50%;">
+        <h3 style="text-align: center; color: white">Quadrant 4 (Not Urgent/Not Important)</h3>
+        <table class="table table-bordered table-striped table-sm" style="color: white;">
+            <thead class="table-dark">
+                <tr>
+                    <td>Task</td>
+                    <td>Due Date</td>
+                    <td>Category</td>
+                    <td>Complete?</td>
+                    <td>Edit</td>
+                    <td>Delete</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var task in Model)
+                {
+                    @if (task.Quadrant == 4)
+                    {
+                <tr>
+                    <td style="max-width: 200px;">@task.Task</td>
+                    <td style="max-width: 90px;">@task.DueDate</td>
+                    <td>@task.Category.CategoryName</td>
+                    <td style="text-align: center"><a asp-controller="Home" asp-action="Completed" asp-route-taskid="@task.TaskId">☐</a></td>
+                    <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@task.TaskId">Edit</a></td>
+                    <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@task.TaskId">Delete</a></td>
+                </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
